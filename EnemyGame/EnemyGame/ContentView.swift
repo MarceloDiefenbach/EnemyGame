@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
+import _SpriteKit_SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            SpriteView(scene: SceneCombat())
+                
         }
-        .padding()
+        .ignoresSafeArea()
+        .statusBarHidden(true)
     }
 }
 
