@@ -21,7 +21,7 @@ class SceneCombat: SKScene {
     }
     
     private func configureScene() {
-        self.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        self.size = CGSize(width: ScreenSize.width, height: ScreenSize.height)
         self.view?.ignoresSiblingOrder = true
         self.lastUpdateTime = 0
         
@@ -29,9 +29,15 @@ class SceneCombat: SKScene {
     }
 
     private func configureBackground() {
+        background.anchorPoint = .zero
         background.size = CGSize(width: frame.width, height: frame.height)
         background.zPosition = 0
-        background.position = CGPoint(x: frame.width/2, y: frame.height/2)
+        background.position = .zero
+        
+        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.size.width)
+        teamGrid.zPosition = 1
+        
+        background.addChild(teamGrid)
         
         self.addChild(background)
     }
