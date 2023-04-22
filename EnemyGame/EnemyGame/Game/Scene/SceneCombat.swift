@@ -34,7 +34,7 @@ class SceneCombat: SKScene {
         background.zPosition = 0
         background.position = .zero
         
-        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.size.width)
+        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.size.width, team: [:])
         teamGrid.zPosition = 1
         
         background.addChild(teamGrid)

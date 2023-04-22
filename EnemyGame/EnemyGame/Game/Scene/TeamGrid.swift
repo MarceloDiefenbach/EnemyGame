@@ -14,12 +14,15 @@ class TeamGrid: SKSpriteNode {
     private var width: CGFloat = ScreenSize.width * 0.8
     private var height: CGFloat = ScreenSize.height * 0.15
     
-    private var team: [Int : SKSpriteNode] = [:]
+    private var team: [Int: SKSpriteNode]
     
-    init(fatherNodeWidth: CGFloat) {
+    init(fatherNodeWidth: CGFloat, team: [Int: SKSpriteNode]) {
+        self.team = team
         super.init(texture: nil, color: .blue, size: CGSize(width: width, height: height))
         configureTeamGrid(fatherNodeWidth: fatherNodeWidth)
-        testTeamGrid()
+        
+        // uncomment line below to test new TeamGrid positions if someday lines or columns change its values
+        // testTeamGrid()
     }
     
     required init?(coder aDecoder: NSCoder) {
