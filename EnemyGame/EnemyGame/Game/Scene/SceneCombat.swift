@@ -10,9 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class SceneCombat: SKScene {
-
-    var entities = [GKEntity]()
-
     private var lastUpdateTime : TimeInterval = 0
     private var background: SKSpriteNode = SKSpriteNode(imageNamed: "BackgroundStandard")
 
@@ -97,11 +94,6 @@ class SceneCombat: SKScene {
 
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
-
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
 
         self.lastUpdateTime = currentTime
     }
