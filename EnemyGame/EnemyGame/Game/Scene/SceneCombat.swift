@@ -32,7 +32,7 @@ class SceneCombat: SKScene {
         background.position = .zero
         
         let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.size.width, team: [:])
-        teamGrid.zPosition = 1
+        teamGrid.zPosition = self.zPosition + 1
         
         background.addChild(teamGrid)
         
