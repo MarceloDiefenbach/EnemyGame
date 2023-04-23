@@ -9,8 +9,8 @@ import Foundation
 import SpriteKit
 
 class TeamGrid: SKSpriteNode {
-    private var lines: CGFloat = 2
-    private var columns: CGFloat = 5
+    private var lines: Int = 2
+    private var columns: Int = 5
     private var width: CGFloat = ScreenSize.width * 0.8
     private var height: CGFloat = ScreenSize.height * 0.15
     
@@ -29,21 +29,30 @@ class TeamGrid: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func addThrower(position: Int, thrower: SKSpriteNode) {
+        if position >= 0 && position < (lines*columns) {
+            thrower.zPosition = self.zPosition + 1
+            thrower.position = getPosition(teamIndex: position)
+            
+            self.addChild(thrower)
+        }
+    }
+    
     private func configureTeamGrid(fatherNodeWidth: CGFloat) {
         self.anchorPoint = .zero
         self.position = CGPoint(x: (fatherNodeWidth - self.width)/2, y: height/2)
     }
     
     private func getPosition(teamIndex: Int) -> CGPoint {
-        let blockHeigth: Int = Int(height/lines)
-        let blockWidth: Int = Int(width/columns)
+        let blockHeigth: CGFloat = height/CGFloat(lines)
+        let blockWidth: CGFloat = width/CGFloat(columns)
         
-        let line = (floor(CGFloat(teamIndex)/columns)) + 1
-        let column = (teamIndex % Int(columns)) + 1
+        let line: Int = Int((floor(CGFloat(teamIndex)/CGFloat(columns))) + 1)
+        let column: Int = (teamIndex % Int(columns)) + 1
         
-        let x = (blockWidth * column) - (blockWidth/2)
-        let y = (blockHeigth * Int(line)) - (blockHeigth/2)
-        
+        let x: Double = (blockWidth * CGFloat(column)) - (blockWidth/2)
+        let y: Double = (blockHeigth * CGFloat(line)) - (blockHeigth/2)
+       
         return CGPoint(x: x, y: y)
     }
     

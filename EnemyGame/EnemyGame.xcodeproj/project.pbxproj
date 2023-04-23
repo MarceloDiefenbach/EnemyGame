@@ -14,6 +14,8 @@
 		F570559E29F31C0800A8F819 /* SceneCombat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570559D29F31C0800A8F819 /* SceneCombat.swift */; };
 		F57055A029F3526600A8F819 /* TeamGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570559F29F3526600A8F819 /* TeamGrid.swift */; };
 		F57055A329F3535100A8F819 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57055A229F3535100A8F819 /* ScreenSize.swift */; };
+		F57055A629F5C5E100A8F819 /* StandardThrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57055A529F5C5E000A8F819 /* StandardThrower.swift */; };
+		F57055A929F5CA4E00A8F819 /* GoldenStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57055A829F5CA4E00A8F819 /* GoldenStar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		F570559D29F31C0800A8F819 /* SceneCombat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCombat.swift; sourceTree = "<group>"; };
 		F570559F29F3526600A8F819 /* TeamGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGrid.swift; sourceTree = "<group>"; };
 		F57055A229F3535100A8F819 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
+		F57055A529F5C5E000A8F819 /* StandardThrower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardThrower.swift; sourceTree = "<group>"; };
+		F57055A829F5CA4E00A8F819 /* GoldenStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenStar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 		F570559929F31B6600A8F819 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				F57055A729F5CA3B00A8F819 /* ResultScreen */,
+				F57055A429F5C5CC00A8F819 /* Thrower */,
 				F570559A29F31B8800A8F819 /* Scene */,
 			);
 			path = Game;
@@ -98,6 +104,22 @@
 				F57055A229F3535100A8F819 /* ScreenSize.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F57055A429F5C5CC00A8F819 /* Thrower */ = {
+			isa = PBXGroup;
+			children = (
+				F57055A529F5C5E000A8F819 /* StandardThrower.swift */,
+			);
+			path = Thrower;
+			sourceTree = "<group>";
+		};
+		F57055A729F5CA3B00A8F819 /* ResultScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F57055A829F5CA4E00A8F819 /* GoldenStar.swift */,
+			);
+			path = ResultScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +196,8 @@
 				F570558E29F317EC00A8F819 /* ContentView.swift in Sources */,
 				F570558C29F317EC00A8F819 /* EnemyGameApp.swift in Sources */,
 				F57055A029F3526600A8F819 /* TeamGrid.swift in Sources */,
+				F57055A629F5C5E100A8F819 /* StandardThrower.swift in Sources */,
+				F57055A929F5CA4E00A8F819 /* GoldenStar.swift in Sources */,
 				F570559E29F31C0800A8F819 /* SceneCombat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

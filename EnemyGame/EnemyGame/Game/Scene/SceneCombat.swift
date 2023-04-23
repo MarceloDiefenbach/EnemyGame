@@ -12,7 +12,10 @@ import GameplayKit
 class SceneCombat: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     private var background: SKSpriteNode = SKSpriteNode(imageNamed: "BackgroundStandard")
-
+    
+    #warning("shouldRemoveStar")
+    var star: GoldenStar? = nil
+    
     override func sceneDidLoad() {
         self.configureScene()
     }
@@ -31,8 +34,12 @@ class SceneCombat: SKScene {
         background.zPosition = 0
         background.position = .zero
         
-        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.size.width, team: [:])
-        teamGrid.zPosition = self.zPosition + 1
+        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.background.size.width, team: [:])
+        teamGrid.zPosition = self.background.zPosition + 1
+        
+        #warning("shouldRemoveStar")
+        self.star = GoldenStar(fatherZPosition: self.background.zPosition)
+        teamGrid.addThrower(position: 7, thrower: self.star!)
         
         background.addChild(teamGrid)
         
@@ -63,13 +70,10 @@ class SceneCombat: SKScene {
 //        }
 //    }
 //
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let label = self.label {
-//            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-//        }
-//
-//        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        #warning("shouldRemove")
+        self.star?.spin()
+    }
 //
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
