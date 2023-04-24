@@ -16,10 +16,10 @@ class TeamGrid: SKSpriteNode {
     
     private var team: [Int: SKSpriteNode]
     
-    init(fatherNodeWidth: CGFloat, team: [Int: SKSpriteNode]) {
+    init(fatherNode: SKSpriteNode, team: [Int: SKSpriteNode]) {
         self.team = team
         super.init(texture: nil, color: .blue, size: CGSize(width: width, height: height))
-        configureTeamGrid(fatherNodeWidth: fatherNodeWidth)
+        configureTeamGrid(fatherNode: fatherNode)
         
         // uncomment line below to test new TeamGrid positions if someday lines or columns change its values
         // testTeamGrid()
@@ -38,9 +38,10 @@ class TeamGrid: SKSpriteNode {
         }
     }
     
-    private func configureTeamGrid(fatherNodeWidth: CGFloat) {
+    private func configureTeamGrid(fatherNode: SKSpriteNode) {
         self.anchorPoint = .zero
-        self.position = CGPoint(x: (fatherNodeWidth - self.width)/2, y: height/2)
+        self.position = CGPoint(x: (fatherNode.size.width - self.width)/2, y: height/2)
+        self.zPosition = fatherNode.zPosition + 1
     }
     
     private func getPosition(teamIndex: Int) -> CGPoint {

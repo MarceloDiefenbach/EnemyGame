@@ -10,10 +10,12 @@ import SpriteKit
 
 class GoldenStar: SKSpriteNode {
     private let baseTextureName: String = "GoldenStar"
-    private let spinDurationInSeconds: CGFloat = 1.5
+    private let width: CGFloat = 30
+    private let height: CGFloat = 30
+    private let spinDurationInSeconds: CGFloat = 0.5
     
     init(fatherZPosition: CGFloat) {
-        super.init(texture: SKTexture(imageNamed: baseTextureName + "0"), color: .yellow, size: CGSize(width: 20, height: 20))
+        super.init(texture: SKTexture(imageNamed: baseTextureName + "0"), color: .yellow, size: CGSize(width: width, height: height))
         self.zPosition = fatherZPosition + 1
     }
     

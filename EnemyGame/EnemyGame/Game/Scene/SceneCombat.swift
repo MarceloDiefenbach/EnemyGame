@@ -14,7 +14,7 @@ class SceneCombat: SKScene {
     private var background: SKSpriteNode = SKSpriteNode(imageNamed: "BackgroundStandard")
     
     #warning("shouldRemoveStar")
-    var star: GoldenStar? = nil
+    var thrower: StandardThrower? = nil
     
     override func sceneDidLoad() {
         self.configureScene()
@@ -24,6 +24,7 @@ class SceneCombat: SKScene {
         self.size = CGSize(width: ScreenSize.width, height: ScreenSize.height)
         self.view?.ignoresSiblingOrder = true
         self.lastUpdateTime = 0
+        self.view?.showsNodeCount = true
         
         self.configureBackground()
     }
@@ -34,12 +35,11 @@ class SceneCombat: SKScene {
         background.zPosition = 0
         background.position = .zero
         
-        let teamGrid: TeamGrid = TeamGrid(fatherNodeWidth: self.background.size.width, team: [:])
-        teamGrid.zPosition = self.background.zPosition + 1
+        let teamGrid: TeamGrid = TeamGrid(fatherNode: self.background, team: [:])
         
         #warning("shouldRemoveStar")
-        self.star = GoldenStar(fatherZPosition: self.background.zPosition)
-        teamGrid.addThrower(position: 7, thrower: self.star!)
+        self.thrower = StandardThrower()
+        teamGrid.addThrower(position: 8, thrower: self.thrower!)
         
         background.addChild(teamGrid)
         
@@ -72,7 +72,7 @@ class SceneCombat: SKScene {
 //
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         #warning("shouldRemove")
-        self.star?.spin()
+        self.thrower?.shot()
     }
 //
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F51CC2EE29F6A988007397B5 /* StraightShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51CC2ED29F6A988007397B5 /* StraightShot.swift */; };
 		F570558C29F317EC00A8F819 /* EnemyGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570558B29F317EC00A8F819 /* EnemyGameApp.swift */; };
 		F570558E29F317EC00A8F819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570558D29F317EC00A8F819 /* ContentView.swift */; };
 		F570559029F317ED00A8F819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F570558F29F317ED00A8F819 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F51CC2ED29F6A988007397B5 /* StraightShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightShot.swift; sourceTree = "<group>"; };
 		F570558829F317EC00A8F819 /* EnemyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnemyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F570558B29F317EC00A8F819 /* EnemyGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyGameApp.swift; sourceTree = "<group>"; };
 		F570558D29F317EC00A8F819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F51CC2EC29F6A975007397B5 /* Shot */ = {
+			isa = PBXGroup;
+			children = (
+				F51CC2ED29F6A988007397B5 /* StraightShot.swift */,
+			);
+			path = Shot;
+			sourceTree = "<group>";
+		};
 		F570557F29F317EC00A8F819 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		F57055A429F5C5CC00A8F819 /* Thrower */ = {
 			isa = PBXGroup;
 			children = (
+				F51CC2EC29F6A975007397B5 /* Shot */,
 				F57055A529F5C5E000A8F819 /* StandardThrower.swift */,
 			);
 			path = Thrower;
@@ -196,6 +207,7 @@
 				F570558E29F317EC00A8F819 /* ContentView.swift in Sources */,
 				F570558C29F317EC00A8F819 /* EnemyGameApp.swift in Sources */,
 				F57055A029F3526600A8F819 /* TeamGrid.swift in Sources */,
+				F51CC2EE29F6A988007397B5 /* StraightShot.swift in Sources */,
 				F57055A629F5C5E100A8F819 /* StandardThrower.swift in Sources */,
 				F57055A929F5CA4E00A8F819 /* GoldenStar.swift in Sources */,
 				F570559E29F31C0800A8F819 /* SceneCombat.swift in Sources */,
