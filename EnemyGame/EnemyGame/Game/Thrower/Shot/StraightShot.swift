@@ -9,11 +9,11 @@ import Foundation
 import SpriteKit
 
 class StraightShot: SKSpriteNode {
-    private let baseTextureName: String = "GreenAlien"
+    private let baseTextureName: String = "StandardShot"
     private let width: CGFloat = 20
     private let height: CGFloat = 20
     private weak var thrower: StandardThrower?
-    private let projectileSpeed: CGFloat = 1000 // pixel per second
+    private let projectileSpeed: CGFloat = 750 // pixel per second
     
     init(thrower: StandardThrower) {
         self.thrower = thrower
@@ -34,24 +34,29 @@ class StraightShot: SKSpriteNode {
     
     private func configureShot() {
         if let thrower {
-            self.position = CGPoint(x: thrower.position.x, y: thrower.position.y + thrower.size.height/2)
+            let y = thrower.position.y + thrower.size.height/2
+            self.position = CGPoint(x: thrower.position.x, y: y)
             self.zPosition = thrower.zPosition + 1
         }
     }
     
-    private func killSelf() {
+    private func deinitSelf() {
         self.removeAllActions()
         self.removeFromParent()
     }
     
     private func travel() {
-        Timer.scheduledTimer(withTimeInterval: 1/100, repeats: true) { timer in
-            self.position = self.calculateNextPosition()
-            if self.position.y > (ScreenSize.height + self.projectileSpeed/100) {
-                timer.invalidate()
-                self.killSelf()
-            }
+        let goal: CGFloat = ScreenSize.height + CGFloat(100)
+        let distance: CGFloat = goal - self.position.y
+        let duration: CGFloat = distance/self.projectileSpeed
+
+        let travelAction = SKAction.moveTo(y: ScreenSize.height + 100, duration: duration)
+        //SKAction.move(to: CGPoint(x: self.position.x - 200, y: ScreenSize.height), duration: duration)
+        
+        self.run(travelAction) {
+            self.deinitSelf()
         }
+        
     }
     
     private func calculateNextPosition() -> CGPoint {

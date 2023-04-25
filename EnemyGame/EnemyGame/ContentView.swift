@@ -11,8 +11,7 @@ import _SpriteKit_SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            SpriteView(scene: SceneCombat())
-                
+            SpriteView(scene: SceneCombat(), debugOptions: [.showsNodeCount])
         }
         .ignoresSafeArea()
         .statusBarHidden(true)

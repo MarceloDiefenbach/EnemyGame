@@ -24,8 +24,8 @@ class StandardThrower: SKSpriteNode {
     }
     
     func shot() {
-        let test = shootingObjectProvider.instantiateShot(thrower: self)
+        let test = StraightShot(thrower: self)
         
-        self.addChild(test)
+        self.parent?.addChild(test)
     }
 }
